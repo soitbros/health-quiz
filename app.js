@@ -6,19 +6,25 @@ class App extends React.Component {
     super();
     this.state = {
       score: 0,
-      step: 0
+      questionValues: {}
     }
     this.updateScore = this.updateScore.bind(this);
   }
 
-  updateScore(){
-    this.setState({score: this.state.score + 1})
+  updateScore(questionKey, answerValue){
+    this.state.questionValues[questionKey] = answerValue;
+    let sum = 0;
+    Object.keys(this.state.questionValues).forEach((currentQuestionKey)=>{
+      sum += this.state.questionValues[currentQuestionKey]
+    })
+    this.setState({score: sum})
   }
+
+  
 
   render(){
     return <div>
     <span>{this.state.score}</span>
-    <button onClick={this.updateScore} />
     <Questions updateScore={this.updateScore} />
     </div>
   }

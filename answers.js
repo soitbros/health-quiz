@@ -20,11 +20,15 @@ class Answers extends React.Component {
   }
 }
 
-const AnswerList = (props) => {
+var handleClick = function(updateScore, questionKey, value) {
+  updateScore(questionKey, value);
+}
 
+
+const AnswerList = (props) => {
   //props.data.value = 0,1,2,3
   return <li>
-          <input type="radio" name={props.questionKey} value={props.data.value} onClick={props.updateScore}>
+          <input type="radio" name={props.questionKey} value={props.data.value} onClick={handleClick.bind(this, props.updateScore, props.questionKey, props.data.value)}>
           </input>
           {props.data.answer}
          </li>

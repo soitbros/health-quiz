@@ -30,7 +30,6 @@ class Questions extends React.Component {
 const QuestionList = (props) => {
   return <div>
     <div className="question">{props.data.question}</div>
-    <button onClick={props.updateScore} />
     <Answers updateScore={props.updateScore} questionKey={props.data.id} />
     </div>
 }
