@@ -1,0 +1,17 @@
+* {
+  padding: auto 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+body {
+  background-color: blue;
+}
+
+li {
+  background-color: white;
+}
+
+.wrapper {
+  min-width: 80%;
+}
