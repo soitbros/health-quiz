@@ -12,16 +12,21 @@ class Answers extends React.Component {
   }
   render(){
     let answers = this.state.data.map ( answer => {
-      return <AnswerList key={answer.value} data={answer} />
+      return <AnswerList questionKey={this.props.questionKey} updateScore={this.props.updateScore} key={answer.value} data={answer} />
     })
-    return <ul>{answers}</ul>
+    return <div>
+    <ul>{answers}</ul>
+    </div>
   }
 }
 
 const AnswerList = (props) => {
+
   //props.data.value = 0,1,2,3
-  return <li className={props.data.value}>
-         {props.data.answer}
+  return <li>
+          <input type="radio" name={props.questionKey} value={props.data.value} onClick={props.updateScore}>
+          </input>
+          {props.data.answer}
          </li>
 }
 
